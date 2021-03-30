@@ -11,11 +11,13 @@
 	
 		basic | 
 	 
-	Hexo
+	tww97&#39;s blog
 	</title>
 	
 	<!-- keywords,description -->
 	 
+		<meta name="description" content="记录自己的前端学习历程" />
+	
 
 	<!-- favicon -->
 	
@@ -89,7 +91,7 @@ var _hmt = _hmt || [];
 </script>
 
 <header id="header">
-    <a id="title" href="/" class="logo">Hexo</a>
+    <a id="title" href="/" class="logo">tww97's blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -210,8 +212,24 @@ var _hmt = _hmt || [];
 </ul>
 <h2 id="MVVM图示"><a href="#MVVM图示" class="headerlink" title="MVVM图示"></a>MVVM图示</h2><img src="C:\Users\Tww\AppData\Roaming\Typora\typora-user-images\image-20200721220521810.png" alt="image-20200721220521810" style="zoom:55%;" />
 
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这里是view 现在就是template模板--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123;message&#125;&#125; <span class="comment">&lt;!--插值表达式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">               el:<span class="string">&quot;app&quot;</span>, <span class="comment">//el是元素element的简写，‘#app’是ID选择器方式绑定message</span></span></span><br><span class="line"><span class="javascript">               <span class="comment">//这里是model，数据（后端给）</span></span></span><br><span class="line">               data:&#123;</span><br><span class="line"><span class="javascript">                   message:<span class="string">&quot;hello Vue&quot;</span></span></span><br><span class="line">               &#125;</span><br><span class="line"><span class="javascript">               <span class="comment">//如果没有mvvm，后端给数据，前端message不会变化</span></span></span><br><span class="line">               &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code class="html">&lt;body&gt;
+    &lt;!--这里是view 现在就是template模板--&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &#123;&#123;message&#125;&#125; &lt;!--插值表达式--&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        let vm = new Vue(&#123;
+               el:&quot;app&quot;, //el是元素element的简写，‘#app’是ID选择器方式绑定message
+               //这里是model，数据（后端给）
+               data:&#123;
+                   message:&quot;hello Vue&quot;
+               &#125;
+               //如果没有mvvm，后端给数据，前端message不会变化
+               &#125;)
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
 
 </div>
 
