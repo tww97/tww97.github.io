@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		test | 
+		实现Object.create方法 | 
 	 
 	tww97&#39;s blog
 	</title>
@@ -125,12 +125,34 @@ var _hmt = _hmt || [];
 
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										javascript
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										js方法实现
+									</a>
+									
+							<ul>
 								<li class="file active">
-									<a href="/2021/03/31/test/">
-										test
+									<a href="/2021/03/31/javascript/js%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0/%E5%AE%9E%E7%8E%B0Object.create%E6%96%B9%E6%B3%95/">
+										实现Object.create方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
 							</ul>
 			
 		</div>
@@ -141,12 +163,12 @@ var _hmt = _hmt || [];
 	<div id="content">
 		<h1 id="article-title">
 
-	test
+	实现Object.create方法
 </h1>
 <div class="article-meta">
 	
 	<span>tww97</span>
-	<span>2021-03-31 10:48:02</span>
+	<span>2021-03-31 11:47:15</span>
 		<div id="article-categories">
     
 		<span>Categories：</span>
@@ -162,7 +184,28 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2 id="this-is-a-test"><a href="#this-is-a-test" class="headerlink" title="this is a test"></a>this is a test</h2>
+	<p><font color='red'>我们首先看一下MDN中对Object.create方法的描述</font>：</p>
+<p>Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的 __proto__。</p>
+<img src="https://tvax1.sinaimg.cn/large/006oebKbly1gp2xvupqfkj316a0rpadl.jpg" alt="image-20210331112438789" style="zoom: 55%;" />
+
+
+
+<p>从MDN的描述中我们可以看到，Object.create一共接收两个参数（第二个参数可选），这两个参数的要求及其作用在文档中描述得很清晰，这里不多赘述，接下来看一下我们怎么实现一个满足上述要求的Object.create方法：</p>
+<pre><code class="js">Object.myCreate = function(obj, describe)&#123;
+    //首先对obj的类型进行判断，参数obj只能为object或null
+    if(typeof obj !== &#39;object&#39;)&#123;
+        throw new TypeError(&#39;Object prototype may only be an object or null&#39;)
+    &#125;
+    
+    function F()&#123;&#125;
+    F.prototype = obj
+    let newObj = new F()//这时newObj.__proto__ === obj
+    Object.defineProperties(newObj, describe)//describe中的属性值和对应的属性描述对象将添加到newObj上
+    
+    return newObj
+&#125;
+</code></pre>
+
 </div>
 
 
